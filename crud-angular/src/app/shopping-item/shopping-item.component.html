@@ -1,0 +1,88 @@
+<h2 style="padding:10px;background-color:rgb(100,50,90)">ABC Compnany, Hyderabad</h2>
+<form #frm="ngForm" (ngSubmit)="addEmployee(frm)" *ngIf="!toggleForm">
+  <h2>Add Employee</h2>
+  <div class="form-group">
+    <label>Employee Name:</label>
+    <input type="text" name="employeeName" class="form-control" [ngModel]="employeeName" value="" required/>
+  </div>
+  <div class="form-group">
+      <label>Joining Date:</label>
+      <input type="text" name="joining_Date" class="form-control" [ngModel]="joining_Date" required/>
+    </div>
+    <div class="form-group">
+      <label>Age:</label>
+      <input type="number" name="age" class="form-control" [ngModel]="age" required/>
+    </div>
+    <div class="form-group">
+        <label>Email Address:</label>
+        <input type="email" name="email_id" class="form-control" [ngModel]="email_id" required/>
+    </div>
+    <div class="form-group">
+        <button type="submit" name="addEmployee" class="btn btn-success" [disabled]=frm.invalid>Add Employee</button>
+    </div>
+</form>
+<!-- Edit Form -->
+<form #editform="ngForm" (ngSubmit)="editEmployee(editform)" *ngIf="toggleForm">
+  <h2>Edit Employee</h2>
+  <div class="form-group">
+    <label>Employee Name:</label>
+    <input type="text" name="employeeName" class="form-control" [ngModel]="selectedEmployee.employeeName" required/>
+  </div>
+  <div class="form-group">
+      <label>Joining Date:</label>
+      <input type="text" name="joining_Date" class="form-control" [ngModel]="selectedEmployee.joining_Date" required/>
+    </div>
+    <div class="form-group">
+      <label>Age:</label>
+      <input type="number" name="age" class="form-control" [ngModel]="selectedEmployee.age" required/>
+    </div>
+    <div class="form-group">
+        <label>Email Address:</label>
+        <input type="email" name="email_id" class="form-control" [ngModel]="selectedEmployee.email_id" required/>
+      </div>
+    <div class="form-group">
+        <button type="submit" name="editEmployee" class="btn btn-success" [disabled]=editform.invalid>Update</button>
+      </div>
+
+</form>
+
+<h2>Employee List</h2><br>
+<div>
+  <div class="row">
+      <div class="col-md-1">
+         <b>Emplyee Name</b>
+      </div>
+      <div class="col-md-1">
+          <b>Joining Date</b>
+      </div>
+      <div class="col-md-2">
+        <b>Age</b>
+    </div>
+    <div class="col-md-2">
+        <b>Email Id</b>
+    </div>
+  </div>
+  <div *ngFor="let employee of EmployeeList" class="row">
+    <div class="col-md-1">
+      {{employee.employeeName}}
+    </div>
+    <div class="col-md-1">
+        {{employee.joining_Date}}
+    </div>
+    <div class="col-md-2">
+      {{employee.age}}
+    </div>
+    <div class="col-md-2">
+        {{employee.email_id}}
+    </div>
+    <div class="col-md-3">
+            <button type="button" name="button" class="btn btn-primary" (click)="showEditForm(employee)" [disabled]="toggleForm">Edit</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" name="button" class="btn btn-danger" (click)="deleteEmployee(employee._id)">Delete</button>
+        <br><br>
+    </div>
+
+  </div>
+
+</div>
