@@ -3,21 +3,17 @@ import { Employee } from '../employee';
 import {DataService} from '../data.service';
 
 @Component({
-  selector: 'app-shopping-item',
-  templateUrl: './shopping-item.component.html',
-  styleUrls: ['./shopping-item.component.css'],
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css'],
   providers:[DataService]
 })
-export class ShoppingItemComponent implements OnInit {
-
+export class EmployeeComponent implements OnInit {
   EmployeeList: Employee[]=[];
   selectedEmployee:Employee;
   toggleForm:boolean=false;
 
-
   constructor(private dataservice:DataService) { }
-
-
   getEmployee(){
     //to do later
     this.dataservice.getEmployee()
@@ -80,4 +76,5 @@ export class ShoppingItemComponent implements OnInit {
   ngOnInit() {
     this.getEmployee();
   }
+
 }
