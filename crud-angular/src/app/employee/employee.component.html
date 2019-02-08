@@ -1,4 +1,4 @@
-<h2 style="padding:10px;background-color:rgb(100,100,100)">ABC Compnany, Hyderabad</h2>
+<h2 style="padding:10px;background-color:rgb(100,100,100);text-align:center;">ABC Compnany, Hyderabad</h2>
 <form #frm="ngForm" (ngSubmit)="addEmployee(frm)" *ngIf="!toggleForm">
   <h2>Add Employee</h2>
   <div class="form-group">
@@ -26,19 +26,19 @@
   <h2>Edit Employee</h2>
   <div class="form-group">
     <label>Employee Name:</label>
-    <input type="text" name="employeeName" class="form-control" [ngModel]="selectedEmployee.employeeName" required/>
+    <input type="text" name="employeeName" class="form-control" [(ngModel)]="selectedEmployee.employeeName" required/>
   </div>
   <div class="form-group">
       <label>Joining Date:</label>
-      <input type="text" name="joining_Date" class="form-control" [ngModel]="selectedEmployee.joining_Date" required/>
+      <input type="text" name="joining_Date" class="form-control" [(ngModel)]="selectedEmployee.joining_Date" required/>
     </div>
     <div class="form-group">
       <label>Age:</label>
-      <input type="number" name="age" class="form-control" [ngModel]="selectedEmployee.age" required/>
+      <input type="number" name="age" class="form-control" [(ngModel)]="selectedEmployee.age" required/>
     </div>
     <div class="form-group">
         <label>Email Address:</label>
-        <input type="email" name="email_id" class="form-control" [ngModel]="selectedEmployee.email_id" required/>
+        <input type="email" name="email_id" class="form-control" readonly="readonly" [(ngModel)]="selectedEmployee.email_id" required/>
       </div>
     <div class="form-group">
         <button type="submit" name="editEmployee" class="btn btn-success" [disabled]=editform.invalid>Update</button>
@@ -55,7 +55,7 @@
       <div class="col-md-1">
           <b>Joining Date</b>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-1">
         <b>Age</b>
     </div>
     <div class="col-md-2">
@@ -69,7 +69,7 @@
     <div class="col-md-1">
         {{employee.joining_Date}}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
       {{employee.age}}
     </div>
     <div class="col-md-2">
